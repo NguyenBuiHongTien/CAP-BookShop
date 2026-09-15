@@ -2,6 +2,18 @@
 
 Ứng dụng quản lý cửa hàng sách xây dựng trên **SAP Cloud Application Programming Model (CAP)**, kết hợp backend OData V4, tích hợp **SAP S/4HANA RAP**, và nhiều giao diện frontend (Fiori Elements + React).
 
+<br/>
+
+<img src="https://img.shields.io/badge/Node.js-18+-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js" />
+<img src="https://img.shields.io/badge/SAP_CAP-CDS-0A6ED1?style=for-the-badge&logo=sap&logoColor=white" alt="SAP CAP" />
+<img src="https://img.shields.io/badge/OData-V4-0070F2?style=for-the-badge&logo=openapiinitiative&logoColor=white" alt="OData V4" />
+<img src="https://img.shields.io/badge/React-18+-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React" />
+<img src="https://img.shields.io/badge/Fiori_Elements-UI5-0A6ED1?style=for-the-badge&logo=sap&logoColor=white" alt="Fiori" />
+<img src="https://img.shields.io/badge/S%2F4HANA-RAP-1B4F72?style=for-the-badge&logo=sap&logoColor=white" alt="RAP" />
+<img src="https://img.shields.io/badge/SQLite-HANA-003B57?style=for-the-badge&logo=sqlite&logoColor=white" alt="DB" />
+
+</div>
+
 ---
 
 ## Mục lục
