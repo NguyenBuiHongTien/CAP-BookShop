@@ -1,6 +1,9 @@
+<div align="center">
+
 # Bookshop — SAP CAP Full-Stack Project
 
-Ứng dụng quản lý cửa hàng sách xây dựng trên **SAP Cloud Application Programming Model (CAP)**, kết hợp backend OData V4, tích hợp **SAP S/4HANA RAP**, và nhiều giao diện frontend (Fiori Elements + React).
+Ứng dụng quản lý cửa hàng sách xây dựng trên **SAP Cloud Application Programming Model (CAP)**,  
+backend **OData V4**, tích hợp **SAP S/4HANA RAP**, và nhiều giao diện frontend (**Fiori Elements + React**).
 
 <br/>
 
