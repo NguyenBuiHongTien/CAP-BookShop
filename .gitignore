@@ -1,0 +1,43 @@
+# Dependencies
+node_modules/
+
+# CAP build / generated artifacts
+target/
+_out/
+gen/
+@cds-models
+
+# Local database (may contain imported business data)
+*.sqlite
+*.sqlite-journal
+*.sqlite-wal
+*.sqlite-shm
+
+# Private credentials — NEVER commit
+.cdsrc-private.json
+default-*.json
+.env
+.env.*
+!.env.example
+
+# Frontend build output
+dist/
+*.zip
+
+# Vite cache
+.vite/
+
+# Logs
+*.log
+logs/
+
+# MTA deployment
+mta_archives/
+*_mta_build_tmp
+*.mtar
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+Desktop.ini
+.idea/

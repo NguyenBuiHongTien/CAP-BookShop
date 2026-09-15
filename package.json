@@ -1,0 +1,37 @@
+{
+  "name": "bookshop",
+  "version": "1.0.0",
+  "dependencies": {
+    "@sap/cds": "^9",
+    "xlsx": "^0.18.5",
+    "@sap-cloud-sdk/connectivity": "^4",
+    "@sap-cloud-sdk/http-client": "^4",
+    "@sap-cloud-sdk/resilience": "^4"
+  },
+  "devDependencies": {
+    "@cap-js/sqlite": "^2.4",
+    "@sap/cds-dk": "^9.9.3",
+    "cds-plugin-ui5": "^0.17.4"
+  },
+  "scripts": {
+    "start": "cds-serve",
+    "watch-project1": "cds watch --open project1/index.html?sap-ui-xx-viewCache=false --livereload false",
+    "watch-adminserviceui": "cds watch --open adminserviceui/index.html?sap-ui-xx-viewCache=false --livereload false"
+  },
+  "private": true,
+  "workspaces": [
+    "app/*"
+  ],
+  "sapux": [
+    "app/project1",
+    "app/adminserviceui"
+  ],
+  "cds": {
+    "requires": {
+      "ZUI_BOOK": {
+        "kind": "odata",
+        "model": "srv/external/ZUI_BOOK"
+      }
+    }
+  }
+}

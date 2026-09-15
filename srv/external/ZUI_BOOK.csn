@@ -1,0 +1,250 @@
+{
+ "meta": {
+  "creator": "cds-dk 9.9.1"
+ },
+ "$version": "2.0",
+ "definitions": {
+  "ZUI_BOOK": {
+   "kind": "service",
+   "@cds.external": true,
+   "@CodeList.CurrencyCodes.Url": "../../../../default/iwbep/common/0001/$metadata",
+   "@CodeList.CurrencyCodes.CollectionPath": "Currencies",
+   "@Common.ApplyMultiUnitBehaviorForSortingAndFiltering": true,
+   "@Capabilities.FilterFunctions": [
+    "eq",
+    "ne",
+    "gt",
+    "ge",
+    "lt",
+    "le",
+    "and",
+    "or",
+    "contains",
+    "startswith",
+    "endswith",
+    "any",
+    "all"
+   ],
+   "@SAP__support.TechnicalInfoLinks.Url": "../../../../default/iwbep/common/0001/$metadata",
+   "@SAP__support.TechnicalInfoLinks.FunctionImport": "GetTechnicalInfoLinks",
+   "@Capabilities.SupportedFormats": [
+    "application/json",
+    "application/pdf"
+   ],
+   "@PDF.Features.DocumentDescriptionReference": "../../../../default/iwbep/common/0001/$metadata",
+   "@PDF.Features.DocumentDescriptionCollection": "MyDocumentDescriptions",
+   "@PDF.Features.ArchiveFormat": true,
+   "@PDF.Features.Border": true,
+   "@PDF.Features.CoverPage": true,
+   "@PDF.Features.FitToPage": true,
+   "@PDF.Features.FontName": true,
+   "@PDF.Features.FontSize": true,
+   "@PDF.Features.HeaderFooter": true,
+   "@PDF.Features.IANATimezoneFormat": true,
+   "@PDF.Features.Margin": true,
+   "@PDF.Features.Padding": true,
+   "@PDF.Features.ResultSizeDefault": 20000,
+   "@PDF.Features.ResultSizeMaximum": 20000,
+   "@PDF.Features.Signature": true,
+   "@PDF.Features.TextDirectionLayout": true,
+   "@PDF.Features.Treeview": true,
+   "@PDF.Features.UploadToFileShare": true,
+   "@Capabilities.KeyAsSegmentSupported": true,
+   "@Capabilities.AsynchronousRequestsSupported": true
+  },
+  "ZUI_BOOK.Book": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "elements": {
+    "book_id": {
+     "key": true,
+     "type": "cds.String",
+     "length": 10,
+     "notNull": true,
+     "@Common.Label": "Book ID"
+    },
+    "title": {
+     "type": "cds.String",
+     "length": 100,
+     "notNull": true,
+     "@Common.Label": "Title"
+    },
+    "author_name": {
+     "type": "cds.String",
+     "length": 50,
+     "notNull": true,
+     "@Common.Label": "Author"
+    },
+    "genre_name": {
+     "type": "cds.String",
+     "length": 30,
+     "notNull": true,
+     "@Common.Label": "Genre"
+    },
+    "price": {
+     "type": "cds.Decimal",
+     "precision": 10,
+     "scale": 2,
+     "notNull": true,
+     "@Common.Label": "Price"
+    },
+    "stock": {
+     "type": "cds.Integer",
+     "notNull": true,
+     "@Common.Label": "Stock"
+    },
+    "currency_code": {
+     "type": "cds.String",
+     "length": 5,
+     "notNull": true,
+     "@Common.IsCurrency": true,
+     "@Common.Label": "Currency"
+    },
+    "last_changed_at": {
+     "type": "cds.Timestamp",
+     "@odata.Precision": 7,
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@UI.Hidden": true,
+     "@Common.Label": "Time Stamp",
+     "@Common.QuickInfo": "UTC Time Stamp in Long Form (YYYYMMDDhhmmssmmmuuun)",
+     "@Common.DocumentationRef": "urn:sap-com:documentation:key?=type=DE&id=TIMESTAMPL"
+    }
+   },
+   "@Common.Label": "Projection View Book",
+   "@UI.Facets": [
+    {
+     "$Type": "SAP__UI.ReferenceFacet",
+     "Label": "Book Information",
+     "ID": "BookInfo",
+     "Target": {
+      "=": "@UI.Identification"
+     }
+    }
+   ],
+   "@UI.HeaderInfo.TypeName": "Book",
+   "@UI.HeaderInfo.TypeNamePlural": "Books",
+   "@UI.HeaderInfo.Title.$Type": "SAP__UI.DataField",
+   "@UI.HeaderInfo.Title.Value": {
+    "=": "title"
+   },
+   "@UI.HeaderInfo.Description.$Type": "SAP__UI.DataField",
+   "@UI.HeaderInfo.Description.Value": {
+    "=": "author_name"
+   },
+   "@UI.Identification": [
+    {
+     "$Type": "SAP__UI.DataField",
+     "Label": "Book ID",
+     "Value": {
+      "=": "book_id"
+     }
+    },
+    {
+     "$Type": "SAP__UI.DataField",
+     "Label": "Title",
+     "Value": {
+      "=": "title"
+     }
+    },
+    {
+     "$Type": "SAP__UI.DataField",
+     "Label": "Author",
+     "Value": {
+      "=": "author_name"
+     }
+    },
+    {
+     "$Type": "SAP__UI.DataField",
+     "Label": "Genre",
+     "Value": {
+      "=": "genre_name"
+     }
+    },
+    {
+     "$Type": "SAP__UI.DataField",
+     "Label": "Price",
+     "Value": {
+      "=": "price"
+     }
+    },
+    {
+     "$Type": "SAP__UI.DataField",
+     "Label": "Stock",
+     "Value": {
+      "=": "stock"
+     }
+    },
+    {
+     "$Type": "SAP__UI.DataField",
+     "Label": "Currency",
+     "Value": {
+      "=": "currency_code"
+     }
+    }
+   ],
+   "@UI.LineItem": [
+    {
+     "$Type": "SAP__UI.DataField",
+     "Label": "Book ID",
+     "Value": {
+      "=": "book_id"
+     }
+    },
+    {
+     "$Type": "SAP__UI.DataField",
+     "Label": "Title",
+     "Value": {
+      "=": "title"
+     }
+    },
+    {
+     "$Type": "SAP__UI.DataField",
+     "Label": "Author",
+     "Value": {
+      "=": "author_name"
+     }
+    },
+    {
+     "$Type": "SAP__UI.DataField",
+     "Label": "Genre",
+     "Value": {
+      "=": "genre_name"
+     }
+    },
+    {
+     "$Type": "SAP__UI.DataField",
+     "Label": "Price",
+     "Value": {
+      "=": "price"
+     }
+    },
+    {
+     "$Type": "SAP__UI.DataField",
+     "Label": "Stock",
+     "Value": {
+      "=": "stock"
+     }
+    },
+    {
+     "$Type": "SAP__UI.DataField",
+     "Label": "Currency",
+     "Value": {
+      "=": "currency_code"
+     }
+    }
+   ],
+   "@UI.SelectionFields": [
+    "book_id",
+    "title",
+    "author_name",
+    "genre_name"
+   ],
+   "@Capabilities.SearchRestrictions.Searchable": false,
+   "@Capabilities.InsertRestrictions.Insertable": false,
+   "@Capabilities.DeleteRestrictions.Deletable": false,
+   "@Capabilities.UpdateRestrictions.Updatable": false,
+   "@Capabilities.UpdateRestrictions.QueryOptions.SelectSupported": true
+  }
+ }
+}

@@ -1,0 +1,39 @@
+<core:FragmentDefinition
+  xmlns="sap.m"
+  xmlns:core="sap.ui.core"
+  xmlns:u="sap.ui.unified">
+
+  <Dialog
+    id="uploadExcelDialog"
+    title="Upload Excel"
+    contentWidth="28rem"
+    class="sapUiResponsivePadding">
+
+    <content>
+      <VBox id="uploadVBox" class="sapUiSmallMargin">
+        <Label id="uploadLabel" text="Select Excel file (.xlsx)" labelFor="excelFileUploader"/>
+        <u:FileUploader
+          id="excelFileUploader"
+          name="excelFile"
+          fileType="xlsx,xls"
+          placeholder="Choose a file..."
+          change=".onFileChange"
+          style="Emphasized"
+          class="sapUiSmallMarginTop"
+          width="100%"/>
+        <Text
+          id="uploadHint"
+          class="sapUiSmallMarginTop"
+          text="Expected columns: title, author, genre, stock, price, currency, descr"/>
+      </VBox>
+    </content>
+
+    <beginButton>
+      <Button id="btnUpload" text="Upload" type="Emphasized" press=".onUploadPress"/>
+    </beginButton>
+    <endButton>
+      <Button id="btnCancel" text="Cancel" press=".onCancelPress"/>
+    </endButton>
+  </Dialog>
+
+</core:FragmentDefinition>

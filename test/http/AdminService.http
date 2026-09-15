@@ -1,0 +1,93 @@
+@server = http://localhost:4004
+@username = alice
+@password = 
+
+### =====================================================
+### Authors
+### =====================================================
+
+# @name Authors_GET
+GET {{server}}/admin/Authors
+# Authorization: Basic {{username}}:{{password}}
+
+
+# @name Authors_POST
+POST {{server}}/admin/Authors
+Content-Type: application/json
+Authorization: Basic {{username}}:{{password}}
+
+{
+  "name": "Haruki Murakami"
+}
+
+
+# @name Authors_PATCH
+# Thay <AUTHOR_UUID> bằng UUID thật lấy từ Authors_GET
+PATCH {{server}}/admin/Authors/<AUTHOR_UUID>
+Content-Type: application/json
+Authorization: Basic {{username}}:{{password}}
+
+{
+  "name": "Haruki Murakami Updated"
+}
+
+
+# @name Authors_DELETE
+DELETE {{server}}/admin/Authors/<AUTHOR_UUID>
+Authorization: Basic {{username}}:{{password}}
+
+
+### =====================================================
+### Books
+### =====================================================
+
+# @name Books_GET
+GET {{server}}/admin/Books
+Authorization: Basic {{username}}:{{password}}
+
+
+# @name Books_POST
+POST {{server}}/admin/Books
+Content-Type: application/json
+Authorization: Basic {{username}}:{{password}}
+
+{
+  "title": "Norwegian Wood",
+  "descr": "A nostalgic story of love and loss in 1960s Tokyo",
+  "stock": 45,
+  "price": 18.99,
+  "currency_code": "USD",
+  "author_ID": "<AUTHOR_UUID>",
+  "genre_ID": 11
+}
+
+
+# @name Books_PATCH
+PATCH {{server}}/admin/Books/<BOOK_UUID>
+Content-Type: application/json
+Authorization: Basic {{username}}:{{password}}
+
+{
+  "title": "Norwegian Wood - Updated",
+  "stock": 40,
+  "price": 17.50
+}
+
+
+# @name Books_DELETE
+DELETE {{server}}/admin/Books/<BOOK_UUID>
+Authorization: Basic {{username}}:{{password}}
+
+
+### =====================================================
+### Genres & Currencies
+### =====================================================
+
+# @name Genres_GET
+GET {{server}}/admin/Genres
+Authorization: Basic {{username}}:{{password}}
+
+
+# @name Currencies_GET
+GET {{server}}/admin/Currencies
+Authorization: Basic {{username}}:{{password}}

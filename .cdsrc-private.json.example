@@ -1,0 +1,16 @@
+{
+  "requires": {
+    "ZUI_BOOK": {
+      "kind": "odata",
+      "model": "srv/external/ZUI_BOOK",
+      "credentials": {
+        "url": "https://<tenant>-api.s4hana.cloud.sap/sap/opu/odata4/sap/zui_book_o4/srvd_a2x/sap/zui_book/0001/",
+        "username": "<your-username>",
+        "password": "<your-password>",
+        "headers": {
+          "sap-client": "<client-number>"
+        }
+      }
+    }
+  }
+}

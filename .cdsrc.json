@@ -1,0 +1,13 @@
+{
+  "server": {
+    "exit_on_multi_install": false
+  },
+  "requires": {
+    "db": {
+      "kind": "sqlite",
+      "credentials": {
+        "url": "db.sqlite"
+      }
+    }
+  }
+}

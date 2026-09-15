@@ -1,0 +1,279 @@
+{
+  "_version": "1.86.0",
+  "sap.app": {
+    "id": "adminserviceui",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:lrop",
+      "version": "1.29.0",
+      "toolsId": "5f028f93-e735-4c0b-a3d2-fe04ab7af00e"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/admin/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "odataVersion": "4.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.150.1",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.fe.templates": {}
+      }
+    },
+    "extends": {
+      "extensions": {
+        "sap.ui.controllerExtensions": {
+          "sap.fe.templates.ListReport.ListReportController": {
+            "controllerName": "adminserviceui.ext.controller.ListReportExt"
+          }
+        }
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "adminserviceui.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      },
+      "@i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/i18n.properties"
+      }
+    },
+    "resources": {
+      "css": []
+    },
+    "routing": {
+  "config": {},
+  "routes": [
+    {
+      "pattern": ":?query:",
+      "name": "AuthorsList",
+      "target": "AuthorsList"
+    },
+    {
+      "pattern": "Authors({key}):?query:",
+      "name": "AuthorsObjectPage",
+      "target": "AuthorsObjectPage"
+    },
+    {
+      "pattern": "Books:?query:",
+      "name": "BooksList",
+      "target": "BooksList"
+    },
+    {
+      "pattern": "Books({key}):?query:",
+      "name": "BooksObjectPage",
+      "target": "BooksObjectPage"
+    },
+    {
+      "pattern": "Genres:?query:",
+      "name": "GenresList",
+      "target": "GenresList"
+    },
+    {
+      "pattern": "Genres({key}):?query:",
+      "name": "GenresObjectPage",
+      "target": "GenresObjectPage"
+    }
+  ],
+  "targets": {
+    "AuthorsList": {
+      "type": "Component",
+      "id": "AuthorsList",
+      "name": "sap.fe.templates.ListReport",
+      "options": {
+        "settings": {
+          "contextPath": "/Authors",
+          "variantManagement": "Page",
+          "navigation": {
+            "Authors": {
+              "detail": {
+                "route": "AuthorsObjectPage"
+              }
+            }
+          },
+          "controlConfiguration": {
+            "@com.sap.vocabularies.UI.v1.LineItem": {
+              "tableSettings": {
+                "type": "ResponsiveTable"
+              }
+            }
+          }
+        }
+      }
+    },
+    "AuthorsObjectPage": {
+      "type": "Component",
+      "id": "AuthorsObjectPage",
+      "name": "sap.fe.templates.ObjectPage",
+      "options": {
+        "settings": {
+          "editableHeaderContent": false,
+          "contextPath": "/Authors"
+        }
+      }
+    },
+    "BooksList": {
+      "type": "Component",
+      "id": "BooksList",
+      "name": "sap.fe.templates.ListReport",
+      "options": {
+        "settings": {
+          "contextPath": "/Books",
+          "variantManagement": "Page",
+          "navigation": {
+            "Books": {
+              "detail": {
+                "route": "BooksObjectPage"
+              }
+            }
+          },
+          "controlConfiguration": {
+            "@com.sap.vocabularies.UI.v1.LineItem": {
+              "tableSettings": {
+                "type": "ResponsiveTable"
+              },
+              "actions": {
+                "UploadExcel": {
+                  "text": "Upload Excel",
+                  "press": "adminserviceui.ext.CustomActions.onUploadExcel",
+                  "visible": true,
+                  "enabled": true,
+                  "requiresSelection": false
+                },
+                "LoadFromABAP": {
+                  "text": "Load from ABAP",
+                  "press": "adminserviceui.ext.CustomActions.onLoadFromABAP",
+                  "visible": true,
+                  "enabled": true,
+                  "requiresSelection": false
+                },
+                "ExportExcel": {
+                  "text": "Export Excel",
+                  "press": "adminserviceui.ext.CustomActions.onExportBooksExcel",
+                  "visible": true,
+                  "enabled": true,
+                  "requiresSelection": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "BooksObjectPage": {
+      "type": "Component",
+      "id": "BooksObjectPage",
+      "name": "sap.fe.templates.ObjectPage",
+      "options": {
+        "settings": {
+          "editableHeaderContent": false,
+          "contextPath": "/Books"
+        }
+      }
+    },
+    "GenresList": {
+      "type": "Component",
+      "id": "GenresList",
+      "name": "sap.fe.templates.ListReport",
+      "options": {
+        "settings": {
+          "contextPath": "/Genres",
+          "variantManagement": "Page",
+          "navigation": {
+            "Genres": {
+              "detail": {
+                "route": "GenresObjectPage"
+              }
+            }
+          },
+          "controlConfiguration": {
+            "@com.sap.vocabularies.UI.v1.LineItem": {
+              "tableSettings": {
+                "type": "ResponsiveTable"
+              },
+              "actions": {
+                "UploadGenre": {
+                  "text": "Upload Genre",
+                  "press": "adminserviceui.ext.CustomActions.onUploadGenres",
+                  "visible": true,
+                  "enabled": true,
+                  "requiresSelection": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "GenresObjectPage": {
+      "type": "Component",
+      "id": "GenresObjectPage",
+      "name": "sap.fe.templates.ObjectPage",
+      "options": {
+        "settings": {
+          "editableHeaderContent": false,
+          "contextPath": "/Genres"
+        }
+      }
+    }
+  }
+}
+  },
+  "sap.fiori": {
+    "registrationIds": [],
+    "archeType": "transactional"
+  },
+  "sap.fe": {
+    "app": {
+      "enableLazyLoading": true
+    }
+  }
+}

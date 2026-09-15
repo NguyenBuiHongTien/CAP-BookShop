@@ -1,0 +1,15 @@
+@server=http://localhost:4004
+@username=alice
+@password=
+
+
+### Books
+# @name Books_GET
+GET {{server}}/browse/Books
+Authorization: Basic {{username}}:{{password}}
+
+
+### Currencies
+# @name Currencies_GET
+GET {{server}}/browse/Currencies
+Authorization: Basic {{username}}:{{password}}

@@ -1,0 +1,10 @@
+### CatalogService.read Books
+GET http://localhost:4004/browse/Books?
+&$select=ID,title,author
+&$filter=contains(author,'Bro')
+
+### AdminService.read Authors
+GET http://localhost:4004/admin/Authors?
+&$select=ID,name
+&$expand=books($select=ID,title)
+Authorization: Basic alice:
